@@ -151,8 +151,8 @@ object Main extends App {
     case list => getCompletePath(list.head.endTile,completePath.copy(list = completePath.list.head +: list).filterDuplicatePaths,allCoveredPath)
   }
 }*/
-  val srow = if(args(0)==null)1 else if(args(0).toInt>10) throw new RuntimeException("Invalid row number") else args(0).toInt
-  val scol = if(args(1)==null) 1 else if(args(1).toInt>10) throw new RuntimeException("Invalid col number") else args(1).toInt
+  val srow = if(args(0)==null)1 else if(args(0).toInt>10 || args(0).toInt<1 ) throw new RuntimeException("Invalid row number") else args(0).toInt
+  val scol = if(args(1)==null) 1 else if(args(1).toInt>10 || args(1).toInt<10 ) throw new RuntimeException("Invalid col number") else args(1).toInt
   println(startCalculation(srow, scol))
 
   def startCalculation(row: Int, col: Int): List[Tile] = {
